@@ -12,32 +12,40 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 1
+  number: 0
   entry_points:
     - distro = distro.distro:main
-  noarch: python
-  script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
+  skip: true  # [py<36]
+  script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -v --no-build-isolation
 
 requirements:
-  build:
+  host:
     - python
     - pip
+    - setuptools
+    - wheel
   run:
     - python
 
 test:
+  requires:
+    - pip
   commands:
+    - pip check
     - distro --help
   imports:
     - distro
 
 about:
-  home: https://github.com/nir0s/distro
+  home: https://github.com/python-distro/distro
   license: Apache-2.0
+  license_family: Apache
   license_file: LICENSE
-  summary: Linux Distribution - a Linux OS platform information API
-  doc_url: http://distro.readthedocs.io/en/latest/
-  dev_url: https://github.com/nir0s/distro
+  summary: A much more elaborate replacement for removed Python's 'platform.linux_distribution()' method
+  description: distro provides information about the OS distribution it runs on, such as a reliable machine-readable ID, or version information.
+  description: 
+  doc_url: https://distro.readthedocs.io
+  dev_url: https://github.com/python-distro/distro
 
 extra:
   recipe-maintainers:
