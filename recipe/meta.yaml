@@ -43,7 +43,6 @@ about:
   license_file: LICENSE
   summary: A much more elaborate replacement for removed Python's 'platform.linux_distribution()' method
   description: distro provides information about the OS distribution it runs on, such as a reliable machine-readable ID, or version information.
-  description: 
   doc_url: https://distro.readthedocs.io
   dev_url: https://github.com/python-distro/distro
 
