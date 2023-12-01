@@ -1,6 +1,6 @@
 {% set name = "distro" %}
-{% set version = "1.5.0" %}
-{% set sha256 = "0e58756ae38fbd8fc3020d54badb8eae17c5b9dcbed388b17bb55b8a5928df92" %}
+{% set version = "1.8.0" %}
+{% set sha256 = "02e111d1dc6a50abb8eed6bf31c3e48ed8b0830d1ea2a1b78c61765c2513fdd8" %}
 
 package:
   name: {{ name|lower }}
@@ -14,7 +14,7 @@ source:
 build:
   number: 1
   entry_points:
-    - distro = distro:main
+    - distro = distro.distro:main
   noarch: python
   script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
 
